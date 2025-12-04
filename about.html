@@ -12,6 +12,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap"
         rel="stylesheet">
+    
+    <!-- Snipcart Styles -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
 </head>
 
 <body>
@@ -20,8 +23,10 @@
         <nav class="main-nav">
             <a href="index.html" class="nav-link">Work</a>
             <a href="about.html" class="nav-link active">About</a>
-            <a href="https://your-shopify-store.myshopify.com" class="nav-link nav-link--shop" target="_blank"
-                rel="noopener">Shop</a>
+            <a href="shop.html" class="nav-link nav-link--shop">Shop</a>
+            <button class="snipcart-checkout nav-cart">
+                Cart (<span class="snipcart-items-count">0</span>)
+            </button>
         </nav>
     </header>
 
@@ -88,6 +93,10 @@
             <a href="https://instagram.com/michaelsabuni" target="_blank" rel="noopener">Instagram</a>
         </div>
     </footer>
+
+    <!-- Snipcart -->
+    <div hidden id="snipcart" data-api-key="YOUR_SNIPCART_PUBLIC_API_KEY" data-config-modal-style="side"></div>
+    <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
 </body>
 
 </html>
