@@ -1,231 +1,709 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shop Michael Sabuni Photography - Fine Art Prints">
-    <meta name="robots" content="noai, noimageai">
-    <title>Shop | Michael Sabuni</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- Snipcart Styles -->
-    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
-
-    <!-- Favicon -->
-    <link rel="icon" sizes="32x32"
-        href="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,1350,1080,32,32/0-0-0/74873713-87ed-45cc-9911-80bc98f1d298/1/1/Untitled_Artwork+10.png?fjkss=exp=2080273010~hmac=0027e9e2a9e07a846c13d7478af798322c34abe5e800daa7d1869fdecb2739a8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop Michael Sabuni Photography - Museum-quality fine art prints, made to order.">
+  <meta name="robots" content="noai, noimageai">
+  
+  <title>Shop - Michael Sabuni's Portfolio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,1350,1080,32,32/0-0-0/74873713-87ed-45cc-9911-80bc98f1d298/1/1/Untitled_Artwork+10.png?fjkss=exp=2080739634~hmac=41305b2c3a0aa2c483a531b7b39cf858b840f0fa5540a82c8b7ef027fdb55d1e">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Snipcart Styles -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shop - Michael Sabuni's Portfolio">
+  <meta property="og:description" content="Museum-quality fine art prints, made to order.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.michaelsabuni.com/shop">
+  
+  <style>
+    /* Shop-specific styles */
+    .shop-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 4rem;
+    }
+    
+    .shop-info-item {
+      text-align: center;
+    }
+    
+    .shop-info-item h3 {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+    }
+    
+    .shop-info-item p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 3rem;
+      margin-bottom: 5rem;
+    }
+    
+    .product-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .product-image {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    
+    .product-info {
+      padding: 1.5rem;
+    }
+    
+    .product-title {
+      font-family: var(--font-primary);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .product-edition {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.25rem;
+    }
+    
+    .product-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
+    
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+    }
+    
+    .btn--secondary {
+      background: transparent;
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+    
+    .btn--secondary:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    
+    .shop-faq {
+      padding: 4rem 0;
+      border-top: 1px solid var(--color-border);
+    }
+    
+    .shop-faq h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 1.25rem;
+    }
+    
+    .faq-item summary {
+      font-family: var(--font-primary);
+      font-size: 1.1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      transition: transform var(--transition-fast);
+    }
+    
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    
+    .faq-item p {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.9rem;
+    }
+    
+    .nav-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-accent);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+    
+    .nav-cart:hover {
+      background: var(--color-accent-hover);
+    }
+    
+    @media (max-width: 768px) {
+      .shop-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header class="site-header">
-        <a href="index.html" class="logo">
-            <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/X3XL,0,1,0/0-0-0/048a2060-cff1-42ee-ae30-461626dd7417/1/1/Untitled_Artwork+10.png?fjkss=exp=2079643859~hmac=c61feeb332204d180ca78a5f89a6551c3865e528549499d6f3e98719b00f50e1"
-                alt="Michael Sabuni" class="logo-image">
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="/" class="logo-link">
+          <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/X3XL,0,1,0/0-0-0/048a2060-cff1-42ee-ae30-461626dd7417/1/1/Untitled_Artwork+10.png?fjkss=exp=2080739634~hmac=1fe8b564d0babde81604c910a0a545d4b275b5ce3edb4463113b136f623fb265" alt="Michael Sabuni" class="logo-image">
         </a>
-        <nav class="main-nav">
-            <a href="index.html" class="nav-link">Work</a>
-            <a href="shop.html" class="nav-link nav-link--shop active">Shop</a>
-            <button class="snipcart-checkout nav-cart">
-                Cart (<span class="snipcart-items-count">0</span>)
-            </button>
+      </div>
+      
+      <nav class="nav-desktop">
+        <ul class="nav-list">
+          <li class="nav-item nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">
+              Wildlife & Travel
+              <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="film-analogue.html">Film/Analogue</a></li>
+              <li class="dropdown-item"><a href="wildlife.html">Digital</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="shuka-soil-exhibition.html" class="nav-link">Shuka & Soil 2025</a>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">
+              Conservation Projects
+              <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="material-cultures.html">Material Cultures - Growing Place</a></li>
+            </ul>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">
+              Archival Works
+              <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="homepage.html">Fashion & Portraiture</a></li>
+              <li class="dropdown-item"><a href="documentary-interiors.html">Documentary & Interiors</a></li>
+              <li class="dropdown-item"><a href="viewpoint-colour.html">Viewpoint Colour - Issue 12</a></li>
+              <li class="dropdown-item"><a href="events.html">Events</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link active">Shop</a>
+          </li>
+        </ul>
+        <button class="snipcart-checkout nav-cart">
+          Cart (<span class="snipcart-items-count">0</span>)
+        </button>
+      </nav>
+      
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile" id="mobileNav">
+      <ul class="nav-list">
+        <li class="nav-item nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle">
+            Wildlife & Travel
+            <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="film-analogue.html">Film/Analogue</a></li>
+            <li class="dropdown-item"><a href="wildlife.html">Digital</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="shuka-soil-exhibition.html" class="nav-link">Shuka & Soil 2025 Exhibition</a>
+        </li>
+        <li class="nav-item nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle">
+            Conservation & Community Projects
+            <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="material-cultures.html">Material Cultures - Growing Place</a></li>
+          </ul>
+        </li>
+        <li class="nav-item nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle">
+            Archival Works
+            <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="homepage.html">Fashion & Portraiture</a></li>
+            <li class="dropdown-item"><a href="documentary-interiors.html">Documentary & Interiors</a></li>
+            <li class="dropdown-item"><a href="viewpoint-colour.html">Viewpoint Colour - Issue 12</a></li>
+            <li class="dropdown-item"><a href="events.html">Events</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="shop.html" class="nav-link active">Shop</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>Shop</span>
         </nav>
-    </header>
+        <h1 class="page-title">Print Shop</h1>
+        <p class="page-description">Museum-quality fine art prints, made to order</p>
+      </div>
+    </section>
 
-    <main class="shop-page">
-        <section class="hero">
-            <h1 class="hero-title">Print Shop</h1>
-            <p class="hero-subtitle">Museum-quality fine art prints, made to order</p>
-        </section>
-
-        <section class="shop-info">
-            <div class="shop-info-item">
-                <h3>Quality</h3>
-                <p>Archival giclée prints on Hahnemühle Photo Rag paper</p>
+    <!-- Shop Content -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="shop-info">
+          <div class="shop-info-item">
+            <h3>Quality</h3>
+            <p>Archival giclée prints on Hahnemühle Photo Rag paper</p>
+          </div>
+          <div class="shop-info-item">
+            <h3>Editions</h3>
+            <p>Limited editions of 25, signed and numbered</p>
+          </div>
+          <div class="shop-info-item">
+            <h3>Shipping</h3>
+            <p>Worldwide shipping, carefully packaged</p>
+          </div>
+        </div>
+        
+        <div class="product-grid">
+          <!-- Product 1 - Wildlife -->
+          <article class="product-card fade-in">
+            <div class="product-image">
+              <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg?fjkss=exp=2079643859~hmac=b753fde17cf894b0b5b50484c208a0d44679c354ccf500e2fd08b8b7f45ed3fe" alt="Wildlife - Fine Art Print" loading="lazy">
             </div>
-            <div class="shop-info-item">
-                <h3>Editions</h3>
-                <p>Limited editions of 25, signed and numbered</p>
+            <div class="product-info">
+              <h2 class="product-title">Wildlife I</h2>
+              <p class="product-edition">Edition of 25</p>
+              <div class="product-options">
+                <button class="snipcart-add-item btn btn--primary"
+                  data-item-id="wildlife-1-small"
+                  data-item-price="150.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Wildlife I - Small"
+                  data-item-description="Fine art print, 8×10 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg">
+                  Small (8×10") — $150
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="wildlife-1-medium"
+                  data-item-price="350.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Wildlife I - Medium"
+                  data-item-description="Fine art print, 16×20 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg">
+                  Medium (16×20") — $350
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="wildlife-1-large"
+                  data-item-price="650.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Wildlife I - Large"
+                  data-item-description="Fine art print, 24×30 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg">
+                  Large (24×30") — $650
+                </button>
+              </div>
             </div>
-            <div class="shop-info-item">
-                <h3>Shipping</h3>
-                <p>Worldwide shipping, carefully packaged</p>
+          </article>
+
+          <!-- Product 2 - Film/Analogue -->
+          <article class="product-card fade-in stagger-1">
+            <div class="product-image">
+              <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg?fjkss=exp=2079643859~hmac=f11c60db4dcd706bde52787e999c5e27c37edc05bcec877a0d11de9211c65501" alt="Film/Analogue - Fine Art Print" loading="lazy">
             </div>
-        </section>
+            <div class="product-info">
+              <h2 class="product-title">Film Study I</h2>
+              <p class="product-edition">Edition of 25</p>
+              <div class="product-options">
+                <button class="snipcart-add-item btn btn--primary"
+                  data-item-id="film-study-1-small"
+                  data-item-price="150.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Film Study I - Small"
+                  data-item-description="Fine art print, 8×10 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg">
+                  Small (8×10") — $150
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="film-study-1-medium"
+                  data-item-price="350.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Film Study I - Medium"
+                  data-item-description="Fine art print, 16×20 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg">
+                  Medium (16×20") — $350
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="film-study-1-large"
+                  data-item-price="650.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Film Study I - Large"
+                  data-item-description="Fine art print, 24×30 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg">
+                  Large (24×30") — $650
+                </button>
+              </div>
+            </div>
+          </article>
 
-        <section class="product-grid">
-            <!-- Product 1 - Wildlife -->
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg?fjkss=exp=2079643859~hmac=b753fde17cf894b0b5b50484c208a0d44679c354ccf500e2fd08b8b7f45ed3fe"
-                        alt="Wildlife - Fine Art Print" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-title">Wildlife I</h2>
-                    <p class="product-edition">Edition of 25</p>
-                    <div class="product-options">
-                        <button class="snipcart-add-item btn btn--primary" data-item-id="wildlife-1-small"
-                            data-item-price="150.00" data-item-url="/shop.html" data-item-name="Wildlife I - Small"
-                            data-item-description="Fine art print, 8×10 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg">
-                            Small (8×10") — $150
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="wildlife-1-medium"
-                            data-item-price="350.00" data-item-url="/shop.html" data-item-name="Wildlife I - Medium"
-                            data-item-description="Fine art print, 16×20 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg">
-                            Medium (16×20") — $350
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="wildlife-1-large"
-                            data-item-price="650.00" data-item-url="/shop.html" data-item-name="Wildlife I - Large"
-                            data-item-description="Fine art print, 24×30 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3548,2494,2500,2494/0-0-0/a7f93078-8766-4c19-bcce-d0ea3ad18dcd/1/1/ANIMAL+%2817%29.jpg">
-                            Large (24×30") — $650
-                        </button>
-                    </div>
-                </div>
-            </article>
+          <!-- Product 3 - Portrait -->
+          <article class="product-card fade-in stagger-2">
+            <div class="product-image">
+              <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg?fjkss=exp=2079643859~hmac=f11c60db4dcd706bde52787e999c5e27c37edc05bcec877a0d11de9211c65501" alt="Portrait - Fine Art Print" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h2 class="product-title">Portrait Study</h2>
+              <p class="product-edition">Edition of 25</p>
+              <div class="product-options">
+                <button class="snipcart-add-item btn btn--primary"
+                  data-item-id="portrait-study-small"
+                  data-item-price="150.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Portrait Study - Small"
+                  data-item-description="Fine art print, 8×10 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg">
+                  Small (8×10") — $150
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="portrait-study-medium"
+                  data-item-price="350.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Portrait Study - Medium"
+                  data-item-description="Fine art print, 16×20 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg">
+                  Medium (16×20") — $350
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="portrait-study-large"
+                  data-item-price="650.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Portrait Study - Large"
+                  data-item-description="Fine art print, 24×30 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg">
+                  Large (24×30") — $650
+                </button>
+              </div>
+            </div>
+          </article>
 
-            <!-- Product 2 - Film/Analogue -->
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg?fjkss=exp=2079643859~hmac=f11c60db4dcd706bde52787e999c5e27c37edc05bcec877a0d11de9211c65501"
-                        alt="Film/Analogue - Fine Art Print" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-title">Film Study I</h2>
-                    <p class="product-edition">Edition of 25</p>
-                    <div class="product-options">
-                        <button class="snipcart-add-item btn btn--primary" data-item-id="film-study-1-small"
-                            data-item-price="150.00" data-item-url="/shop.html" data-item-name="Film Study I - Small"
-                            data-item-description="Fine art print, 8×10 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg">
-                            Small (8×10") — $150
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="film-study-1-medium"
-                            data-item-price="350.00" data-item-url="/shop.html" data-item-name="Film Study I - Medium"
-                            data-item-description="Fine art print, 16×20 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg">
-                            Medium (16×20") — $350
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="film-study-1-large"
-                            data-item-price="650.00" data-item-url="/shop.html" data-item-name="Film Study I - Large"
-                            data-item-description="Fine art print, 24×30 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/a9c810fc-67db-497c-a216-40b69a4a72c4/1/1/250206000000030034.jpg">
-                            Large (24×30") — $650
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Product 3 - Portrait -->
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg?fjkss=exp=2079643859~hmac=f11c60db4dcd706bde52787e999c5e27c37edc05bcec877a0d11de9211c65501"
-                        alt="Portrait - Fine Art Print" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-title">Portrait Study</h2>
-                    <p class="product-edition">Edition of 25</p>
-                    <div class="product-options">
-                        <button class="snipcart-add-item btn btn--primary" data-item-id="portrait-study-small"
-                            data-item-price="150.00" data-item-url="/shop.html" data-item-name="Portrait Study - Small"
-                            data-item-description="Fine art print, 8×10 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg">
-                            Small (8×10") — $150
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="portrait-study-medium"
-                            data-item-price="350.00" data-item-url="/shop.html" data-item-name="Portrait Study - Medium"
-                            data-item-description="Fine art print, 16×20 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg">
-                            Medium (16×20") — $350
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="portrait-study-large"
-                            data-item-price="650.00" data-item-url="/shop.html" data-item-name="Portrait Study - Large"
-                            data-item-description="Fine art print, 24×30 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/6892215c-4e68-44f5-a3f5-a27ccc9c36a4/1/1/250206000000010022.jpg">
-                            Large (24×30") — $650
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Product 4 - Documentary -->
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg?fjkss=exp=2079643859~hmac=f11c60db4dcd706bde52787e999c5e27c37edc05bcec877a0d11de9211c65501"
-                        alt="Documentary - Fine Art Print" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-title">Documentary I</h2>
-                    <p class="product-edition">Edition of 25</p>
-                    <div class="product-options">
-                        <button class="snipcart-add-item btn btn--primary" data-item-id="documentary-1-small"
-                            data-item-price="150.00" data-item-url="/shop.html" data-item-name="Documentary I - Small"
-                            data-item-description="Fine art print, 8×10 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg">
-                            Small (8×10") — $150
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="documentary-1-medium"
-                            data-item-price="350.00" data-item-url="/shop.html" data-item-name="Documentary I - Medium"
-                            data-item-description="Fine art print, 16×20 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg">
-                            Medium (16×20") — $350
-                        </button>
-                        <button class="snipcart-add-item btn btn--secondary" data-item-id="documentary-1-large"
-                            data-item-price="650.00" data-item-url="/shop.html" data-item-name="Documentary I - Large"
-                            data-item-description="Fine art print, 24×30 inches"
-                            data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg">
-                            Large (24×30") — $650
-                        </button>
-                    </div>
-                </div>
-            </article>
-        </section>
+          <!-- Product 4 - Documentary -->
+          <article class="product-card fade-in stagger-3">
+            <div class="product-image">
+              <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg?fjkss=exp=2079643859~hmac=f11c60db4dcd706bde52787e999c5e27c37edc05bcec877a0d11de9211c65501" alt="Documentary - Fine Art Print" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h2 class="product-title">Documentary I</h2>
+              <p class="product-edition">Edition of 25</p>
+              <div class="product-options">
+                <button class="snipcart-add-item btn btn--primary"
+                  data-item-id="documentary-1-small"
+                  data-item-price="150.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Documentary I - Small"
+                  data-item-description="Fine art print, 8×10 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg">
+                  Small (8×10") — $150
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="documentary-1-medium"
+                  data-item-price="350.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Documentary I - Medium"
+                  data-item-description="Fine art print, 16×20 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg">
+                  Medium (16×20") — $350
+                </button>
+                <button class="snipcart-add-item btn btn--secondary"
+                  data-item-id="documentary-1-large"
+                  data-item-price="650.00"
+                  data-item-url="/shop.html"
+                  data-item-name="Documentary I - Large"
+                  data-item-description="Fine art print, 24×30 inches"
+                  data-item-image="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2075,3130,900,3130/0-0-0/8becd170-6947-408d-ba2a-70d661ebe587/1/1/250206000000130029.jpg">
+                  Large (24×30") — $650
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
 
         <section class="shop-faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <details class="faq-item">
-                    <summary>What paper do you use?</summary>
-                    <p>All prints are made on Hahnemühle Photo Rag 308gsm, a museum-quality, 100% cotton paper with a
-                        smooth matte finish. This archival paper is rated to last over 100 years.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Are prints signed?</summary>
-                    <p>Yes, all limited edition prints are hand-signed and numbered by Michael on the front border.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>How are prints shipped?</summary>
-                    <p>Prints are shipped flat in rigid mailers with acid-free tissue paper. Large prints are shipped
-                        rolled in sturdy tubes. All shipments are insured.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What is your return policy?</summary>
-                    <p>Due to the limited edition nature of these prints, all sales are final. However, if your print
-                        arrives damaged, we will replace it at no cost.</p>
-                </details>
-            </div>
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-grid">
+            <details class="faq-item">
+              <summary>What paper do you use?</summary>
+              <p>All prints are made on Hahnemühle Photo Rag 308gsm, a museum-quality, 100% cotton paper with a smooth matte finish. This archival paper is rated to last over 100 years.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Are prints signed?</summary>
+              <p>Yes, all limited edition prints are hand-signed and numbered by Michael on the front border.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How are prints shipped?</summary>
+              <p>Prints are shipped flat in rigid mailers with acid-free tissue paper. Large prints are shipped rolled in sturdy tubes. All shipments are insured.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What is your return policy?</summary>
+              <p>Due to the limited edition nature of these prints, all sales are final. However, if your print arrives damaged, we will replace it at no cost.</p>
+            </details>
+          </div>
         </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-        <p>© 2024 Michael Sabuni. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="mailto:hello@michaelsabuni.com">Contact</a>
-            <a href="https://www.instagram.com/michaelsabuni_/" target="_blank" rel="noopener">Instagram</a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="logo-text">Michael Sabuni</p>
+          <p>Visual artist and photographer exploring the intersection of wildlife, culture, and humanity across Africa and beyond.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/michaelsabuni" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="18" cy="6" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
         </div>
-    </footer>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html">Shop</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="film-analogue.html">Film/Analogue</a></li>
+            <li><a href="shuka-soil-exhibition.html">Shuka & Soil 2025</a></li>
+            <li><a href="homepage.html">Fashion & Portraiture</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">More Work</h4>
+          <ul class="footer-links">
+            <li><a href="documentary-interiors.html">Documentary & Interiors</a></li>
+            <li><a href="material-cultures.html">Material Cultures</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Michael Sabuni. All rights reserved.</p>
+        <p>All images are protected by copyright.</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Snipcart -->
-    <div hidden id="snipcart" data-api-key="YOUR_SNIPCART_PUBLIC_API_KEY" data-config-modal-style="side"></div>
-    <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+  <!-- Snipcart -->
+  <div hidden id="snipcart" data-api-key="YOUR_SNIPCART_PUBLIC_API_KEY" data-config-modal-style="side"></div>
+  <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+
+  <script>
+    // Mobile Navigation Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Mobile Dropdown Toggle
+    document.querySelectorAll('.nav-mobile .nav-dropdown').forEach(dropdown => {
+      dropdown.querySelector('.nav-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+      });
+    });
+
+    // Header Hide on Scroll
+    let lastScroll = 0;
+    const header = document.getElementById('header');
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Fade In Animation on Scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
 </body>
-
 </html>
 
