@@ -181,6 +181,17 @@ main {
     overflow: hidden;
 }
 
+.hero--medium {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+}
+
 .hero-background {
     position: absolute;
     top: 0;
@@ -237,6 +248,31 @@ main {
     letter-spacing: 0.02em;
 }
 
+/* Page Header (for inner pages) */
+.page-header {
+    padding-top: calc(var(--header-height) + var(--space-xl));
+    padding-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+}
+
+.page-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
 /* Section Title */
 .section-title {
     font-family: var(--font-display);
@@ -259,6 +295,11 @@ main {
     margin: 0 auto;
 }
 
+.gallery--dense {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 4px;
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -274,6 +315,10 @@ main {
 .gallery-item--tall {
     grid-row: span 2;
     aspect-ratio: auto;
+}
+
+.gallery-item--square {
+    aspect-ratio: 1/1;
 }
 
 .gallery-item img {
@@ -307,6 +352,57 @@ main {
 .gallery-item:hover figcaption {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- About Section --- */
+.about-section {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+.about-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(20%);
+    transition: filter var(--transition-medium);
+}
+
+.about-image:hover img {
+    filter: grayscale(0%);
+}
+
+.about-text h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+}
+
+.about-text p {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
 }
 
 /* --- About Brief Section --- */
@@ -357,6 +453,116 @@ main {
 
 .social-link:hover {
     color: var(--color-accent);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: var(--space-lg);
+}
+
+.contact-info h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+}
+
+.contact-info p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.contact-info a {
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+}
+
+.contact-info a:hover {
+    color: var(--color-accent);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    margin-top: var(--space-lg);
+}
+
+.contact-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.contact-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* --- Exhibition/Project Pages --- */
+.project-intro {
+    padding: var(--space-lg) var(--space-md);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.project-intro p {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.project-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.project-meta-item {
+    text-align: center;
+}
+
+.project-meta-item span {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+}
+
+.project-meta-item strong {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text);
 }
 
 /* --- Shop Page --- */
@@ -638,6 +844,11 @@ main {
         aspect-ratio: 4/3;
     }
     
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
     .shop-info {
         grid-template-columns: 1fr;
         gap: var(--space-sm);
@@ -666,6 +877,16 @@ main {
     
     .about-brief p {
         font-size: 1rem;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: var(--space-md);
     }
 }
 
@@ -705,3 +926,52 @@ main {
         transform: translateX(-50%) scaleY(1);
     }
 }
+
+/* Text content styling */
+.text-content {
+    padding: var(--space-lg) var(--space-md);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.text-content h2:first-child {
+    margin-top: 0;
+}
+
+.text-content p {
+    font-size: 1.0625rem;
+    line-height: 1.9;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.text-content p:last-child {
+    margin-bottom: 0;
+}
+
+.text-content strong {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.text-content em {
+    font-style: italic;
+}
+
+/* Divider */
+.divider {
+    width: 60px;
+    height: 1px;
+    background-color: var(--color-accent);
+    margin: var(--space-lg) auto;
+}
+
