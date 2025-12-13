@@ -305,7 +305,7 @@ img {
     right: 0;
     bottom: 0;
     background: var(--color-bg);
-    padding: 2rem;
+    padding: 1.5rem;
     overflow-y: auto;
     transform: translateX(100%);
     transition: transform var(--transition-medium);
@@ -328,12 +328,13 @@ img {
     display: block;
     width: 100%;
     border-bottom: 1px solid var(--color-border);
+    padding: 0.25rem 0;
 }
 
 .nav-mobile .nav-link {
     display: block;
-    padding: 1rem 0;
-    font-size: 0.9rem;
+    padding: 0.6rem 0;
+    font-size: 0.85rem;
     width: 100%;
 }
 
@@ -375,7 +376,8 @@ img {
 }
 
 .nav-mobile .dropdown-item a {
-    padding: 0.75rem 0;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
 }
 
 /* ============================================
