@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Michael Sabuni - Wildlife & Documentary Photographer. Visual artist exploring the intersection of wildlife, culture, and humanity across Africa and beyond.">
+  <meta name="description"
+    content="Michael Sabuni - Wildlife & Documentary Photographer. Visual artist exploring the intersection of wildlife, culture, and humanity across Africa and beyond.">
   <meta name="robots" content="noai, noimageai">
-  
+
   <title>Michael Sabuni - Wildlife & Documentary Photographer</title>
-  
+
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,1350,1080,32,32/0-0-0/74873713-87ed-45cc-9911-80bc98f1d298/1/1/Untitled_Artwork+10.png?fjkss=exp=2080739634~hmac=41305b2c3a0aa2c483a531b7b39cf858b840f0fa5540a82c8b7ef027fdb55d1e">
-  
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,1350,1080,32,32/0-0-0/74873713-87ed-45cc-9911-80bc98f1d298/1/1/Untitled_Artwork+10.png?fjkss=exp=2080739634~hmac=41305b2c3a0aa2c483a531b7b39cf858b840f0fa5540a82c8b7ef027fdb55d1e">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Karla:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
   <!-- Open Graph -->
   <meta property="og:site_name" content="Michael Sabuni's Portfolio">
   <meta property="og:title" content="Michael Sabuni - Wildlife & Documentary Photographer">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.michaelsabuni.com">
-  <meta property="og:image" content="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3130,2075,1600,1200/0-0-0/72296343-16ca-4036-a1f4-0c47d420fc49/1/1/250908000000130016.jpg">
-  <meta property="og:description" content="Wildlife & Documentary Photographer exploring the intersection of wildlife, culture, and humanity across Africa and beyond.">
-  
+  <meta property="og:image"
+    content="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3130,2075,1600,1200/0-0-0/72296343-16ca-4036-a1f4-0c47d420fc49/1/1/250908000000130016.jpg">
+  <meta property="og:description"
+    content="Wildlife & Documentary Photographer exploring the intersection of wildlife, culture, and humanity across Africa and beyond.">
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
-    html, body {
+
+    html,
+    body {
       height: 100%;
       overflow: hidden;
     }
-    
+
     body {
       font-family: 'Karla', sans-serif;
       background: #241F31;
     }
-    
+
     .landing-page {
       position: fixed;
       top: 0;
@@ -52,7 +60,7 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .background-image {
       position: absolute;
       top: 0;
@@ -61,14 +69,14 @@
       height: 100%;
       z-index: 0;
     }
-    
+
     .background-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: 52% 11%;
     }
-    
+
     .background-overlay {
       position: absolute;
       top: 0;
@@ -78,7 +86,7 @@
       background: rgba(0, 0, 0, 0.15);
       z-index: 1;
     }
-    
+
     .content {
       position: relative;
       z-index: 2;
@@ -88,15 +96,15 @@
       text-align: center;
       padding: 2rem;
     }
-    
+
     .logo-image {
       max-width: 400px;
       width: 80vw;
       height: auto;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
       filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
     }
-    
+
     .tagline {
       font-family: 'Karla', sans-serif;
       font-size: clamp(0.75rem, 2vw, 1rem);
@@ -107,7 +115,7 @@
       margin-bottom: 3rem;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
-    
+
     .enter-button {
       display: inline-block;
       padding: 1rem 2.5rem;
@@ -124,53 +132,54 @@
       transition: all 0.3s ease;
       cursor: pointer;
     }
-    
+
     .enter-button:hover {
       background: rgba(255, 255, 255, 0.15);
       border-color: #ffffff;
       transform: translateY(-2px);
     }
-    
+
     /* Fade in animation */
     .fade-in {
       opacity: 0;
       animation: fadeIn 1.5s ease forwards;
     }
-    
+
     .fade-in-delay-1 {
       animation-delay: 0.3s;
     }
-    
+
     .fade-in-delay-2 {
       animation-delay: 0.6s;
     }
-    
+
     .fade-in-delay-3 {
       animation-delay: 0.9s;
     }
-    
+
     @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    
+
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .logo-image {
         max-width: 280px;
       }
-      
+
       .tagline {
         font-size: 0.7rem;
         letter-spacing: 0.15em;
       }
-      
+
       .enter-button {
         padding: 0.875rem 2rem;
         font-size: 0.8rem;
@@ -178,32 +187,27 @@
     }
   </style>
 </head>
+
 <body>
   <div class="landing-page">
     <!-- Background Image -->
     <div class="background-image">
-      <img 
-        src="images/elephant001.jpg" 
-        alt="Wildlife Photography by Michael Sabuni"
-      >
+      <img src="images/elephant001.jpg" alt="Wildlife Photography by Michael Sabuni">
     </div>
     <div class="background-overlay"></div>
-    
+
     <!-- Content -->
     <div class="content">
       <!-- Logo -->
-      <img 
-        src="images/index_logo.png" 
-        alt="Michael Sabuni" 
-        class="logo-image fade-in"
-      >
-      
+      <img src="images/index_logo.png" alt="Michael Sabuni" class="logo-image fade-in">
+
       <!-- Tagline -->
       <p class="tagline fade-in fade-in-delay-1">Wildlife & Documentary Photographer</p>
-      
+
       <!-- Enter Button -->
       <a href="wildlife.html" class="enter-button fade-in fade-in-delay-2">Enter</a>
     </div>
   </div>
 </body>
+
 </html>
