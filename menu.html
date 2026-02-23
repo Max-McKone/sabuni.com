@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Michael Sabuni - Navigation Menu. Explore Portfolio, Shop, and Contact.">
+    <meta name="robots" content="noai, noimageai">
+
+    <title>Michael Sabuni - Menu</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,1350,1080,32,32/0-0-0/74873713-87ed-45cc-9911-80bc98f1d298/1/1/Untitled_Artwork+10.png?fjkss=exp=2080739634~hmac=41305b2c3a0aa2c483a531b7b39cf858b840f0fa5540a82c8b7ef027fdb55d1e">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Karla:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Karla', sans-serif;
+            background-color: #000;
+        }
+
+        .menu-page {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .header {
+            background-color: #000;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 100px;
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-img:hover {
+            opacity: 0.8;
+        }
+
+        .menu-items {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .menu-item {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            overflow: hidden;
+            transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .menu-item:hover {
+            flex: 1.6;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            transition: transform 0.8s ease;
+        }
+
+        .menu-item:hover .bg-image {
+            transform: scale(1.05);
+        }
+
+        .bg-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            transition: background 0.4s ease;
+        }
+
+        .menu-item:hover .overlay {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .item-text {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            text-transform: uppercase;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, letter-spacing 0.4s ease;
+            pointer-events: none;
+        }
+
+        .menu-item:hover .item-text {
+            transform: scale(1.05);
+            letter-spacing: 0.05em;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .header {
+                height: 80px;
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+
+            .item-text {
+                font-size: clamp(2rem, 15vw, 4rem);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-page">
+        <header class="header">
+            <a href="index.html">
+                <img src="images/index_logo.png" alt="Michael Sabuni" class="logo-img">
+            </a>
+        </header>
+
+        <div class="menu-items">
+            <!-- Portfolio -->
+            <a href="wildlife.html" class="menu-item">
+                <div class="bg-image">
+                    <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2429,3643,900,3643/0-0-0/950bf400-92d3-4e74-810e-c68eebf6a2bd/1/1/IMG_3429.jpg?fjkss=exp=2079724515~hmac=d078d083a8acbd30bca7c56797b5404834bcd31de62bc9f2d2b030fe5e196c7c"
+                        alt="Portfolio">
+                </div>
+                <div class="overlay"></div>
+                <h2 class="item-text">Portfolio</h2>
+            </a>
+
+            <!-- Shop -->
+            <a href="shop.html" class="menu-item">
+                <div class="bg-image">
+                    <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2429,3643,900,3643/0-0-0/06e80064-84ef-4ebe-a85f-78d0c8b92185/1/1/IMG_6678.jpg?fjkss=exp=2079724515~hmac=d078d083a8acbd30bca7c56797b5404834bcd31de62bc9f2d2b030fe5e196c7c"
+                        alt="Shop">
+                </div>
+                <div class="overlay"></div>
+                <h2 class="item-text">Shop</h2>
+            </a>
+
+            <!-- Contact -->
+            <a href="contact.html" class="menu-item">
+                <div class="bg-image">
+                    <img src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2429,3643,900,3643/0-0-0/3b9b04a7-d52d-47cf-9480-2425b0d7ca4d/1/1/IMG_2430.jpg?fjkss=exp=2079724515~hmac=d078d083a8acbd30bca7c56797b5404834bcd31de62bc9f2d2b030fe5e196c7c"
+                        alt="Contact">
+                </div>
+                <div class="overlay"></div>
+                <h2 class="item-text">Contact</h2>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
