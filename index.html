@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Michael Sabuni - Wildlife & Documentary Photographer. Visual artist exploring the intersection of wildlife, culture, and humanity across Africa and beyond.">
+    content="Michael Sabuni - Portfolio, Shop, and Contact. Exploring the intersection of wildlife and culture.">
   <meta name="robots" content="noai, noimageai">
 
-  <title>Michael Sabuni - Wildlife & Documentary Photographer</title>
+  <title>Michael Sabuni - Home</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32"
@@ -17,19 +17,8 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Karla:wght@300;400;500;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Karla:wght@400;600&display=swap"
     rel="stylesheet">
-
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="Michael Sabuni's Portfolio">
-  <meta property="og:title" content="Michael Sabuni - Wildlife & Documentary Photographer">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.michaelsabuni.com">
-  <meta property="og:image"
-    content="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,3130,2075,1600,1200/0-0-0/72296343-16ca-4036-a1f4-0c47d420fc49/1/1/250908000000130016.jpg">
-  <meta property="og:description"
-    content="Wildlife & Documentary Photographer exploring the intersection of wildlife, culture, and humanity across Africa and beyond.">
 
   <style>
     * {
@@ -38,174 +27,178 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    body,
+    html {
       height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Karla', sans-serif;
+      background-color: #000;
+    }
+
+    .menu-page {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .header {
+      background-color: #000;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 60px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-items {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
     }
 
-    body {
-      font-family: 'Karla', sans-serif;
-      background: #241F31;
-    }
-
-    .landing-page {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .menu-item {
+      flex: 1;
+      position: relative;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
+      overflow: hidden;
+      transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    .background-image {
+    .menu-item:hover {
+      flex: 1.6;
+    }
+
+    .bg-image {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
+      transition: transform 0.8s ease;
     }
 
-    .background-image img {
+    .menu-item:hover .bg-image {
+      transform: scale(1.05);
+    }
+
+    .bg-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 52% 11%;
+      object-position: center;
     }
 
-    .background-overlay {
+    .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.2);
       z-index: 1;
+      transition: background 0.4s ease;
     }
 
-    .content {
+    .menu-item:hover .overlay {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .item-text {
       position: relative;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .logo-image {
-      max-width: 400px;
-      width: 80vw;
-      height: auto;
-      margin-bottom: 0.5rem;
-      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
-    }
-
-    .tagline {
-      font-family: 'Karla', sans-serif;
-      font-size: clamp(0.75rem, 2vw, 1rem);
-      font-weight: 600;
-      letter-spacing: 0.25em;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #ffffff;
-      margin-bottom: 3rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease, letter-spacing 0.4s ease;
+      pointer-events: none;
     }
 
-    .enter-button {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      font-family: 'Karla', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #ffffff;
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .enter-button:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: #ffffff;
-      transform: translateY(-2px);
-    }
-
-    /* Fade in animation */
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    .fade-in-delay-1 {
-      animation-delay: 0.3s;
-    }
-
-    .fade-in-delay-2 {
-      animation-delay: 0.6s;
-    }
-
-    .fade-in-delay-3 {
-      animation-delay: 0.9s;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .menu-item:hover .item-text {
+      transform: scale(1.05);
+      letter-spacing: 0.05em;
     }
 
     /* Mobile adjustments */
     @media (max-width: 768px) {
-      .logo-image {
-        max-width: 280px;
+      .header {
+        height: 80px;
       }
 
-      .tagline {
-        font-size: 0.7rem;
-        letter-spacing: 0.15em;
+      .logo-img {
+        height: 45px;
       }
 
-      .enter-button {
-        padding: 0.875rem 2rem;
-        font-size: 0.8rem;
+      .item-text {
+        font-size: clamp(1.8rem, 12vw, 3.5rem);
+        letter-spacing: 0.05em;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="landing-page">
-    <!-- Background Image -->
-    <div class="background-image">
-      <img src="images/elephant001.jpg" alt="Wildlife Photography by Michael Sabuni">
-    </div>
-    <div class="background-overlay"></div>
+  <div class="menu-page">
+    <header class="header">
+      <a href="index.html">
+        <img src="images/index_logo.png" alt="Michael Sabuni" class="logo-img">
+      </a>
+    </header>
 
-    <!-- Content -->
-    <div class="content">
-      <!-- Logo -->
-      <img src="images/index_logo.png" alt="Michael Sabuni" class="logo-image fade-in">
+    <div class="menu-items">
+      <!-- Portfolio -->
+      <a href="wildlife.html" class="menu-item">
+        <div class="bg-image">
+          <img
+            src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2429,3643,900,3643/0-0-0/950bf400-92d3-4e74-810e-c68eebf6a2bd/1/1/IMG_3429.jpg?fjkss=exp=2079724515~hmac=d078d083a8acbd30bca7c56797b5404834bcd31de62bc9f2d2b030fe5e196c7c"
+            alt="Portfolio">
+        </div>
+        <div class="overlay"></div>
+        <h2 class="item-text">Portfolio</h2>
+      </a>
 
-      <!-- Tagline -->
-      <p class="tagline fade-in fade-in-delay-1">Wildlife & Documentary Photographer</p>
+      <!-- Shop -->
+      <a href="shop.html" class="menu-item">
+        <div class="bg-image">
+          <img
+            src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2429,3643,900,3643/0-0-0/06e80064-84ef-4ebe-a85f-78d0c8b92185/1/1/IMG_6678.jpg?fjkss=exp=2079724515~hmac=d078d083a8acbd30bca7c56797b5404834bcd31de62bc9f2d2b030fe5e196c7c"
+            alt="Shop">
+        </div>
+        <div class="overlay"></div>
+        <h2 class="item-text">Shop</h2>
+      </a>
 
-      <!-- Enter Button -->
-      <a href="menu.html" class="enter-button fade-in fade-in-delay-2">Enter</a>
+      <!-- Contact -->
+      <a href="contact.html" class="menu-item">
+        <div class="bg-image">
+          <img
+            src="https://format.creatorcdn.com/23691a80-499b-4266-83a5-0dbd310a8f03/0/0/0/0,0,2429,3643,900,3643/0-0-0/3b9b04a7-d52d-47cf-9480-2425b0d7ca4d/1/1/IMG_2430.jpg?fjkss=exp=2079724515~hmac=d078d083a8acbd30bca7c56797b5404834bcd31de62bc9f2d2b030fe5e196c7c"
+            alt="Contact">
+        </div>
+        <div class="overlay"></div>
+        <h2 class="item-text">Contact</h2>
+      </a>
     </div>
   </div>
 </body>
