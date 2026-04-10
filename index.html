@@ -45,12 +45,19 @@
 
     .header {
       background-color: #000;
-      height: 100px;
+      height: 140px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 10;
       flex-shrink: 0;
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .logo-img {
@@ -61,6 +68,16 @@
 
     .logo-img:hover {
       transform: scale(1.05);
+    }
+
+    .logo-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-top: 8px;
+      font-weight: 400;
+      font-family: 'Outfit', sans-serif;
     }
 
     .menu-items {
@@ -106,6 +123,10 @@
       object-position: center;
     }
 
+    .portfolio-item .bg-image img {
+      object-position: center 70%;
+    }
+
     .overlay {
       position: absolute;
       top: 0;
@@ -143,11 +164,17 @@
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .header {
-        height: 90px;
+        height: 120px;
       }
 
       .logo-img {
-        height: 60px;
+        height: 50px;
+      }
+
+      .logo-subtitle {
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        margin-top: 10px;
       }
 
       .item-text {
@@ -161,14 +188,17 @@
 <body>
   <div class="menu-page">
     <header class="header">
-      <a href="index.html">
-        <img src="images/index_logo.png" alt="Michael Sabuni" class="logo-img">
-      </a>
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="images/index_logo.png" alt="Michael Sabuni" class="logo-img">
+        </a>
+        <p class="logo-subtitle">Wildlife and Documentary Photographer</p>
+      </div>
     </header>
 
     <div class="menu-items">
       <!-- Portfolio -->
-      <a href="film-analogue.html" class="menu-item">
+      <a href="film-analogue.html" class="menu-item portfolio-item">
         <div class="bg-image">
           <img src="images/landingpage/Grendal in the green.jpg" alt="Portfolio">
         </div>
